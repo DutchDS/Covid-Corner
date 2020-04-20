@@ -1,0 +1,232 @@
+/*
+==================================
+Table of Contents:
+
+1. Universal Element
+
+2. Enter Button
+
+3. Hamburger Nav
+
+4. Fade-In Text
+
+5. Media Query
+==================================
+*/
+
+/*
+==================================
+1. Universal Element 
+==================================
+*/
+* {
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+/*
+==================================
+2. Enter Button
+==================================
+*/
+
+.landing-text h1 {
+    font-size: 50px !important;
+    font-weight: lighter !important;
+    color: #337D7D !important;
+    transition: 0.6s !important;
+    overflow: hidden;
+}
+
+.landing-text h1:hover {
+    font-size: 60px !important;
+}
+
+.landing-text {
+    transform: translateY(19em);
+}
+
+.landing-text {
+    position: relative;
+    text-align: center;
+}
+
+.new-container {
+  transform: translateY(30em);
+}
+
+/*
+==================================
+3. Hamburger Nav 
+==================================
+*/
+nav {
+    z-index: 3;
+}
+
+#hamburger {
+    position: fixed;
+    width: 300px;
+    height: 100% !important;
+    background: #337D7D !important;
+    left: -400px;
+    transition: 0.6s;
+}
+
+#hamburger.active {
+    left: 0;
+}
+
+#hamburger ul li {
+    list-style: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 20px 2em;
+    position: absolute, fixed;
+}
+
+#hamburger ul li a:hover {
+    cursor: pointer;
+    color: rgb(0, 255, 255) !important;
+    /* color: rgb(187, 255, 0); */
+}
+
+#hamburger .menu {
+    position: absolute;
+    top: 30px;
+    left: 450px;
+}
+
+#hamburger .menu .line:hover {
+    cursor: pointer;
+}
+
+#hamburger .menu:hover {
+    cursor: pointer;
+}
+
+
+.menu .line {
+    width: 50px;
+    height: 4px;
+    background: #337D7D;
+    display: block;
+    margin-top: 6px;
+    transition: 0.6s !important;
+    position: relative;
+    overflow: hidden !important;
+}
+
+.menu .line:hover {
+    width: 60px;
+    transition: 0.4s;
+}
+
+#sticky-footer {
+  transform: translateY(42em);
+}
+
+#sticky-footer p {
+font-size: 10px;
+}
+
+/*
+==================================
+4. Fade-In Text
+==================================
+*/
+
+.container, #hamburger {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 8s;
+    -moz-animation: fadeIn ease 8s;
+    -o-animation: fadeIn ease 8s;
+    -ms-animation: fadeIn ease 8s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+}
+
+/*
+==================================
+5. Media Query
+==================================
+*/
+
+@media (max-width: 375px) {
+    /* .container h1 {
+        margin-top: 20%;
+        font-size: 30px;
+    } */
+    
+    .container h2 {
+        font-size: 15px;
+    }
+    
+
+    .menu .line {
+        width: 40px;
+        height: 4px;
+        display: block;
+        margin-top: 5px;
+    }
+    #hamburger {
+        width: 200px;
+        left: -200px;  
+    }
+    #hamburger .menu {
+        top: 20px;
+        left: 230px;
+    }
+    
+}

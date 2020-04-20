@@ -1,0 +1,255 @@
+/*
+==================================
+Table of Contents:
+
+1. Universal Element
+
+2. Enter Button
+
+3. Hamburger Nav
+
+4. Fade-In Text
+
+5. Media Query
+==================================
+*/
+
+/*
+==================================
+1. Universal Element 
+==================================
+*/
+* {
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+/*
+==================================
+2. Enter Button
+==================================
+*/
+
+.landing-text h1 {
+    font-size: 50px !important;
+    font-weight: lighter !important;
+    color: #337D7D !important;
+    transition: 0.6s !important;
+    overflow: hidden;
+}
+
+.landing-text h1:hover {
+    font-size: 60px !important;
+}
+
+.landing-text {
+    transform: translateY(19em);
+}
+
+.landing-text {
+    position: relative;
+    text-align: center;
+}
+
+.enter-button {
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    border: 2px solid #337D7D;
+    color: #337D7D;
+    background: none;
+    margin-top: 0px !important;
+    font-size: 25px !important;
+    padding: 5px 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 1.5s;
+}
+
+.enter-button:hover {
+    color: white;
+}
+
+.enter-button:before {
+    top: 0;
+    border-radius: 0 0 40% 40%;
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #337d7d;
+    z-index: -1;
+    transition: 0.9s;
+}
+
+.enter-button:hover:before {
+    height: 170%;
+}
+
+/*
+==================================
+3. Hamburger Nav 
+==================================
+*/
+nav {
+    z-index: 3;
+}
+
+#hamburger {
+    position: absolute;
+    width: 300px;
+    height: 100% !important;
+    background: #337D7D !important;
+    left: -400px;
+    transition: 0.6s;
+}
+
+#hamburger.active {
+    left: 0;
+}
+
+#hamburger ul li {
+    list-style: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 20px 2em;
+    position: absolute, fixed;
+}
+
+#hamburger ul li a:hover {
+    cursor: pointer;
+    color: rgb(0, 255, 255) !important;
+    /* color: rgb(187, 255, 0); */
+}
+
+#hamburger .menu {
+    position: absolute;
+    top: 30px;
+    left: 450px;
+}
+
+#hamburger .menu .line:hover {
+    cursor: pointer;
+}
+
+#hamburger .menu:hover {
+    cursor: pointer;
+}
+
+
+.menu .line {
+    width: 50px;
+    height: 4px;
+    background: #337D7D;
+    display: block;
+    margin-top: 6px;
+    transition: 0.6s !important;
+    position: relative;
+    overflow: hidden !important;
+}
+
+.menu .line:hover {
+    width: 60px;
+    transition: 0.4s;
+}
+
+/*
+==================================
+4. Fade-In Text
+==================================
+*/
+
+.container, #hamburger {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 8s;
+    -moz-animation: fadeIn ease 8s;
+    -o-animation: fadeIn ease 8s;
+    -ms-animation: fadeIn ease 8s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+}
+
+/*
+==================================
+5. Media Query
+==================================
+*/
+
+@media (max-width: 375px) {
+    /* .container h1 {
+        margin-top: 20%;
+        font-size: 30px;
+    } */
+    
+    .container h2 {
+        font-size: 15px;
+    }
+    
+
+    .menu .line {
+        width: 40px;
+        height: 4px;
+        display: block;
+        margin-top: 5px;
+    }
+    #hamburger {
+        width: 200px;
+        left: -200px;  
+    }
+    #hamburger .menu {
+        top: 20px;
+        left: 230px;
+    }
+    
+}

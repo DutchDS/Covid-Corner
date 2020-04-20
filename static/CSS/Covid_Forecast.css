@@ -1,0 +1,340 @@
+/*
+==================================
+Table of Contents:
+
+1. Universal Element
+
+2. Container
+
+3. Hamburger Nav
+
+4. Fade-In Text
+
+5. Media Query
+
+6. Footer
+==================================
+*/
+
+/*
+==================================
+1. Universal Element 
+==================================
+*/
+
+
+* {
+    font-family: 'Oswald', sans-serif !important;
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+/*
+==================================
+2. Container
+==================================
+*/
+
+#welcome {
+    transform: translateY(18em);
+    position: relative;
+    overflow: hidden !important;
+    transition: 0.9s !important;
+}
+
+#welcome h1{
+    font-size: 60px;
+    color: #337d7d;
+    font-weight: lighter !important;
+    transition: 0.6s;
+}
+
+#welcome h1:hover {
+    font-size: 70px;
+    transition: 0.5s;
+}
+
+
+#para {
+    transform: translateY(30em);
+    overflow: hidden;
+    transition: 0.9s;
+}
+
+#para #about h3{
+    color: #337d7d;
+    font-weight: lighter !important;
+}
+
+#img-grid {
+  transform: translateY(30em);
+  background-color: #337d7d !important;
+}
+
+#img-grid h5 {
+  font-size: 25px !important;
+  color: white !important;
+  font-weight: lighter !important;
+}
+
+#img-grid hr {
+  background-color: white !important;
+}
+
+#img-grid #img-1 {
+  padding-top: 25px;
+  margin-left: 18%;
+  height: 500px;
+  width: 100%;
+  color: #337d7d;
+  background: url(prediction0.jpg);
+  background-repeat: no-repeat;
+}
+
+#img-grid #img-2 {
+  margin-left: 18%;
+  height: 500px;
+  width: 100%;
+  color: #337d7d;
+  background: url(prediction1.jpg);
+  background-repeat: no-repeat;
+
+}
+
+
+
+/*
+==================================
+3. Hamburger Nav 
+==================================
+*/
+
+nav {
+    z-index: 3;
+}
+
+#hamburger {
+    position: fixed;
+    width: 300px;
+    height: 100% !important;
+    background: #337d7d !important;
+    left: -400px;
+    transition: 0.6s;
+}
+
+#hamburger.active {
+    left: 0;
+}
+
+#hamburger ul li {
+    list-style: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 20px 2em;
+    position: absolute, fixed;
+}
+
+#hamburger ul li a:hover {
+    cursor: pointer;
+    color: rgb(0, 255, 255) !important;
+    /* color: rgb(187, 255, 0); */
+}
+
+#hamburger .menu {
+    position: absolute;
+    top: 30px;
+    left: 450px;
+}
+
+#hamburger .menu:hover {
+    cursor: pointer;
+}
+
+
+.menu .line {
+    width: 50px;
+    height: 4px;
+    background: #337d7d;
+    display: block;
+    margin-top: 6px;
+    transition: 0.9s;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu .line:hover {
+    width: 60px;
+    transition: 0.3s;
+}
+
+
+
+/*
+==================================
+4. Fade-In Text
+==================================
+*/
+
+.container {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 8s;
+    -moz-animation: fadeIn ease 8s;
+    -o-animation: fadeIn ease 8s;
+    -ms-animation: fadeIn ease 8s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+}
+
+#hamburger {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 8s;
+    -moz-animation: fadeIn ease 8s;
+    -o-animation: fadeIn ease 8s;
+    -ms-animation: fadeIn ease 8s;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+}
+
+/*
+==================================
+5. Media Query
+==================================
+*/
+
+@media (max-width: 475px) {
+    .container h1 {
+        font-size: 30px;
+    }
+    
+    .container h2 {
+        font-size: 15px;
+    }
+    
+
+    .menu .line {
+        width: 40px;
+        height: 4px;
+        display: block;
+        margin-top: 5px;
+    }
+    #hamburger {
+        width: 200px;
+        left: -200px;  
+    }
+    #hamburger .menu {
+        top: 20px;
+        left: 230px;
+    }
+
+}
+
+/*
+==================================
+6. Footer
+==================================
+*/
+
+#sticky-footer {
+    transform: translateY(45em);
+}
+
+#sticky-footer p {
+  font-size: 10px;
+}

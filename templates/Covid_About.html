@@ -1,0 +1,173 @@
+<!doctype html>
+    <html>
+        <head>
+<!--set meta data-->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--JavaScript sourcing-->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <script src="static/JS/Land_Covid.js"></script>
+            <!-- <script src="assets/JS/Land_Covid.js"></script> -->
+            <link rel="shortcut icon" type="image/png" href="static/CSS/covid.png"/>
+            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!--Link stylesheet and font apis-->
+            <!--Font Awesome CSS library-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+            <!-- <script src="https://kit.fontawesome.com/bf3254133d.js" crossorigin="anonymous"></script> -->
+            
+            <link rel="stylesheet" type="text/css" href="static/CSS/Covid_Team.css">
+            <!-- <link rel="stylesheet" type="text/css" href="assets/CSS/Covid_Team.css"> -->
+            <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+
+            <title>Covid-19 Risk Calculator | About</title>
+        </head>
+    <body>
+        <header>
+            <nav id="hamburger">
+                <div class="menu" onclick="show()">
+                    <div class="line"></div>
+                    <div id="animate-line" class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/risk" target="_blank">Risk Calculator</a></li>
+                    <li><a href="/viz">Visualization</a></li>
+                    <li><a href="/forecast">Predictions</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/team">About</a></li>
+                    <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank">CDC Site</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div id="welcome">
+                <h1 class="text-center">Meet the Team</h1>
+                <div id="arrow">
+                    <a href="#d">
+                        <i id="ar" class="fas fa-chevron-down fa-3x" style="color: #337d7d;"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="new-container">
+                <div id="c" class="card-wrap">
+                    <div id="d" class="profile">
+                        <div class="profile-image">
+                            <img id="image" src="static/CSS/joe1.jpg" height="100%" width="100%"alt="Joseph Yi | Image">
+                        </div>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="https://www.linkedin.com/in/joseph-yi-3a4893110/" target="_blank">
+                                    <i id="linkedin"class="fab fa-linkedin fa-1x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="detail">
+                            <h2>
+                                Joseph Yi
+                                <br>
+                                <span class="position">Frontend Developer</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="profile-2">
+                        <div class="profile-image-2">
+                            <img id="image-2" src="static/CSS/aukje.jpg" height="100%" width="100%"alt="Aukje | Image">
+                        </div>
+                        <ul class="social-icons-2">
+                            <li>
+                                <a href="https://www.linkedin.com/in/aukje-vestjens-rijpkema/" target="_blank">
+                                    <i id="linkedin-2"class="fab fa-linkedin fa-1x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="detail-2">
+                            <h2>
+                                Aukje Rijpkema
+                                <br>
+                                <span class="position">Full Stack Application Engineer</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="profile-3">
+                        <div class="profile-image-3">
+                            <img id="image-3" src="static/CSS/mike.jpg" height="100%" width="100%" alt="Mike Becker | Image" al>
+                        </div>
+                        <ul class="social-icons-3">
+                            <li>
+                                <a href="https://www.linkedin.com/in/michael-becker-40358a150/" target="_blank">
+                                    <i id="linkedin-3"class="fab fa-linkedin fa-1x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="detail-3">
+                            <h2>
+                                Michael Becker
+                                <br>
+                                <span class="position">Data Analyst</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="profile-4">
+                        <div class="profile-image-4">
+                            <img id="image-4" src="static/CSS/leo.jpg" height="100%" width="100%" alt="I need a photo Leo" al>
+                        </div>
+                        <ul class="social-icons-4">
+                            <li>
+                                <a href="https://www.linkedin.com/in/huang85/" target="_blank">
+                                    <i id="linkedin-4"class="fab fa-linkedin fa-1x"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="detail-4">
+                            <h2>
+                                Leo Huang
+                                <br>
+                                <span class="position">Data Scientist</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="para"class="rounded shadow-lg bg-light mb-4">
+                    <div id="about" class="ml-3 mt-2">
+                        <h3>About Us</h3>
+                        <p>
+                            During the late span of the Data Analytics Boot Camp, our team saw a need to create some comfort during times of turmoil.
+                            We saw the ever-increasing interest of the highly talked about COVID-19 virus. 
+                            Everywhere you go, you hear something about the virus.
+                            Either how the virus spreads, how the virus attacks the body, or how many the virus has killed. 
+                            If someone has symptoms, but don't know if they should call a doctor. 
+                            We want to ease any worries the person may have by creating a model that would suggest if you need to contact any medical services.
+                            Our goal is to help people, while still being able to stay at home. 
+                            Curious about who we are? Visit our LinkedIn pages and find out!
+                        </p>
+                    </div>
+                       
+                </div>
+            </div>
+        </div>
+        <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+              <small>Copyright &copy; CoRiT</small>
+              <p class="col-lg-12 col-sm-12">The contents of the Risk Calculator, such as text, graphics, images, and other materials created by the CoRiT Team or obtained from the CoRiT’s licensors, and other materials contained on the CoRiT Site (collectively “Content”) are for informational purposes only. The Content is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on the CoRiT site!
+
+                If you think you may have a medical emergency, call your doctor or 911 immediately. CoRiT does not recommend or endorse any specific tests, physicians, products, procedures, opinions, or other information that may mentioned on the Site. Reliance on any information provided by CoRiT, the CoRiT team, others appearing on the site at the invitation of CoRiT, or other visitors to the site is solely at your own risk.</p>
+            </div>
+        </footer>
+        
+
+        <!-- D3 JavaScript -->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script>
+
+        </body>
+    </html>

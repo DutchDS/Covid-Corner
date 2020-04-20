@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+<!--set meta data-->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--JavaScript sourcing-->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+            <link rel="shortcut icon" type="image/png" href="static/CSS/covid.png"/>
+<!--JavaScript Frame Works-->
+            <!-- This is for the alert box -->
+            
+<!--Link stylesheet and font apis-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
+            <link rel="stylesheet" type="text/css" href="static/CSS/Covid_Risk.css">
+            <!-- <link rel="stylesheet" type="text/css" href="assets/CSS/Covid_Risk.css"> -->
+            <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&display=swap">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+
+            <title>Covid-19 Calculator | Risk Calculator</title>
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+        </head>
+    <body>
+        <header>
+            <nav id="hamburger">
+                <div class="menu" onclick="show()">
+                    <div class="line"></div>
+                    <div id="animate-line" class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/risk" target="_blank">Risk Calculator</a></li>
+                    <li><a href="/viz">Visualization</a></li>
+                    <li><a href="/forecast">Predictions</a></li>
+                    <li><a href="/charts">Charts</a></li>
+                    <li><a href="/team" target="_blank">About</a></li>
+                    <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html" target="_blank">CDC Site</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div id="welcome">
+                <h1 class="text-center">Risk Calculator</h1>
+                <h4 class="text-center">Are you at risk?</h4>
+            </div>
+            <div>
+                <div id="para" class="rounded shadow-lg bg-light mb-4">
+                    <div id="about" class="ml-3 mt-2">
+                        <h3>Please Make a Selection</h3>
+                    <br>
+
+                    <!-- <div id="headers" class=row>
+                        <div class='col-lg-12'><h4>About the Model</h4></div>
+                        <br>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 col-sm-12">
+                            <h5>Choose Model</h5>
+                            <select class="form-control" id="selectModel" name="select-model-from-list"></select>
+                        </div>
+                    </div> -->
+                    <br>
+                    <div id="headers" class=row>
+                        <div class='col-lg-12'><h4>About Yourself</h4></div>
+                        <br>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4 col-sm-12"><h5>Gender</h5>
+                            <select class="form-control" id="selectGender" name="select-gender-from-list">
+                            </select>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-4 col-sm-12"><h5>Age</h5>
+                            <select class="form-control " id="selectAge" name="select-age-from-list">
+                            </select>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <div id="symptom" class=row>
+                        <br>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-10 col-sm-12">
+                            <input class="aby" type='checkbox' id="precondition" value='0'>Pre-condition (Cardiovascular-, Chronic Respiratory Disease, Diabetes, Hyptertention, Cancer)</input>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input class="aby" type='checkbox' id="from_hotspot" value='0'>From Hotspot</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input class="aby" type='checkbox' id="visit_hotspot" value='0'>Visited Hotspot</input>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="feature" class=row>
+                        <div id="headers" class='col-lg-12'>
+                            <h4>About Your Symptoms</h4>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="pneumonia" value='0'>Pneumonia</input>
+                        </div>
+                        <div id="foo" class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="fever" value='0'>Fever</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="cough" value='0'>Cough</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="sputum" value='0'>Sputum</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="chills" value='0'>Chills</input>
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="malaise" value='0'>Malaise</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="breath" value='0'>Shortness of Breath</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="fatigue" value='0'>Fatigue</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="diarrhea" value='0'>Diarrhea</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="headache" value='0'>Headache</input>
+                        </div>
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="throatache" value='0'>Throatache</input>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <input type='checkbox' id="soreness" value='0'>Soreness</input>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="button"class=row>
+                        <div class="col-lg-10"></div>
+                        <div class="col-lg-2 col-sm-12">
+                            <button type="button" class="enter-button" id="submitAll">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+<!-- Added Model Evaluation Output -->
+            <br>
+            <div>
+                <div class="row">
+                    <div class= "col-lg-4"></div>
+                    <div class= "col-lg-6 col-sm-12">
+                    <!-- ############################################ -->
+                    <!-- ########## INSERT BAR CHART ################ -->
+                    <!-- ############################################ -->
+                            <div id="bar_model"></div>
+                        <br>
+                    </div>
+                </div>
+<!-- End of Model Evaluation Output -->
+
+                    </div>
+                    <div id="message" title="ML Results"><p></p></div>
+                    <br>
+                </div>
+            </div>
+            <div id="alert" class="flag note">
+                <div class="flag-image note-icon">
+                    <i class="fas fa-exclamation fa"></i>
+                </div>
+                <div id="point" class="flag-body note-text">
+                    <a class="note-close">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    <div class="m">
+                        <p id="alert-message"></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+              <small>Copyright &copy; CoRiT</small>
+              <p class="col-lg-12 col-sm-12">The contents of the Risk Calculator, such as text, graphics, images, and other materials created by the CoRiT Team or obtained from the CoRiT’s licensors, and other materials contained on the CoRiT Site (collectively “Content”) are for informational purposes only. The Content is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on the CoRiT site!
+
+                If you think you may have a medical emergency, call your doctor or 911 immediately. CoRiT does not recommend or endorse any specific tests, physicians, products, procedures, opinions, or other information that may mentioned on the Site. Reliance on any information provided by CoRiT, the CoRiT team, others appearing on the site at the invitation of CoRiT, or other visitors to the site is solely at your own risk.</p>
+            </div>
+        </footer>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+        <!-- D3 JavaScript -->
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.3/d3.min.js"></script> -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        </body>
+        <script src="static/JS/risk.js"></script>
+        
+        <!-- <script src="assets/JS/risk.js"></script> -->
+    </html>
