@@ -47,8 +47,8 @@
         </header>
         <div class="container">
             <div id="welcome">
-                <h1 class="text-center">Risk Calculator</h1>
-                <h4 class="text-center">Are you at risk?</h4>
+                <h1 class="text-center">Covid Corning Tracking App</h1>
+                <h4 class="text-center">YOU choose your trace!</h4>
             </div>
             <div>
                 <div id="para" class="rounded shadow-lg bg-light mb-4">
@@ -67,22 +67,32 @@
                     </div> -->
                     <br>
                     <div id="headers" class=row>
-                        <div class='col-lg-12'><h4>About Yourself</h4></div>
+                        <div class='col-lg-12'><h4>Find Company Locator</h4></div>
                         <br>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-4 col-sm-12"><h5>Gender</h5>
-                            <select class="form-control" id="selectGender" name="select-gender-from-list">
+                        <br>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-2 col-sm-12"><h5>State</h5>
+                            <select class="form-control" id="selectState" name="select-state-from-list">
                             </select>
                         </div>
                         <div class="col-lg-1"></div>
-                        <div class="col-lg-4 col-sm-12"><h5>Age</h5>
-                            <select class="form-control " id="selectAge" name="select-age-from-list">
+                        <div class="col-lg-2 col-sm-12"><h5>County</h5>
+                            <select class="form-control " id="selectCounty" name="select-county-from-list">
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-3 col-sm-12"><h5>Company</h5>
+                            <select class="form-control " id="selectCompany" name="select-company-from-list">
                             </select>
                         </div>
                         <br>
                     </div>
                     <br>
-                    <div id="symptom" class=row>
+                    <br>
+                    <br>
+                    <br>
+                    <!-- <div id="symptom" class=row>
                         <br>
                         <div class="col-lg-2"></div>
                         <div class="col-lg-10 col-sm-12">
@@ -97,8 +107,8 @@
                         <div class="col-lg-2 col-sm-12">
                             <input class="aby" type='checkbox' id="visit_hotspot" value='0'>Visited Hotspot</input>
                         </div>
-                    </div>
-                    <br>
+                    </div> -->
+                    <!-- <br>
                     <div id="feature" class=row>
                         <div id="headers" class='col-lg-12'>
                             <h4>About Your Symptoms</h4>
@@ -146,12 +156,12 @@
                         </div>
                     </div>
                     <br>
-                    <br>
+                    <br> -->
                     <div id="button"class=row>
                         <div class="col-lg-10"></div>
                         <div class="col-lg-2 col-sm-12">
                             <button type="button" class="enter-button" id="submitAll">
-                                Submit
+                                Get Visit ID
                             </button>
                         </div>
                     </div>
@@ -209,7 +219,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         </body>
-        <script src="static/JS/risk.js"></script>
+        <script src="static/JS/app.js"></script>
         
         <!-- <script src="assets/JS/risk.js"></script> -->
     </html>

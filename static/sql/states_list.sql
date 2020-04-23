@@ -1,0 +1,1 @@
+select state_name, state from states_data order by state_name

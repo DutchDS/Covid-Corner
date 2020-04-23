@@ -49,6 +49,11 @@ def viz():
   
     return render_template("Covid_Viz.html")
 
+@app.route("/app")
+def covid_app(): 
+  
+    return render_template("Covid_App.html")
+
 @app.route("/forecast")
 def forecast(): 
   
@@ -206,6 +211,28 @@ def counties_list():
         results_dict["state"] = state
         results_dict["county"] = county
         results_dict["date"] = date
+        all_results.append(results_dict)
+
+    return jsonify(all_results)
+
+@app.route("/api/v1.0/states_list")
+def states_list(): 
+    result_set = []
+    
+    query_str = open('static/sql/states_list.sql')
+    query_text = ""
+    
+    for text in query_str:
+        query_text = query_text + text
+        
+    result_set = engine.execute(query_text)
+    print(result_set)
+    all_results = []
+    for state_name, state in result_set:
+        results_dict = {}
+        print(state)
+        results_dict["state_name"] = state_name
+        results_dict["state"] = state
         all_results.append(results_dict)
 
     return jsonify(all_results)
