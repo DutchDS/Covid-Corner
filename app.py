@@ -12,6 +12,7 @@ from flask_sqlalchemy import SQLAlchemy
 import decimal
 import flask.json
 from run_models import model1, model3, model4
+from visit_id import create_visit_id
 # import load_db
 
 app = Flask(__name__)
@@ -261,5 +262,16 @@ def bar_model(selFeatures):
         results_dict["train_score"] = train_score
         results_dict["test_score"] = test_score
         all_results.append(results_dict)
+
+    return jsonify(all_results)
+
+@app.route("/api/v1.0/get_visit_id")
+def get_visit_id():
+    
+    all_results = []
+    results_dict = {}
+    results_dict["VISIT_ID"] = create_visit_id()
+    print(results_dict)
+    all_results.append(results_dict)
 
     return jsonify(all_results)

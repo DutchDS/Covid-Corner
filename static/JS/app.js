@@ -119,67 +119,69 @@ get_county.on("change", function() {
 // WE HAVE TO THINK ABOUT THIS ONE.... On Submit the page should be redirected to an endpoint from FLASK
 get_submit.on("click", function() {
   
-  let chosenModel = ""
-  let modelString = ""
-  let returnValues = []
+  // let chosenModel = ""
+  // let modelString = ""
+  // let returnValues = []
   
-  returnValues = preArray()
-  chosenModel = returnValues[0]
-  modelString = returnValues[1]
+  // returnValues = preArray()
+  // chosenModel = returnValues[0]
+  // modelString = returnValues[1]
 
-  console.log(chosenModel)
-  console.log(modelString)
+  // console.log(chosenModel)
+  // console.log(modelString)
   
-  url = "/api/v1.0/"+chosenModel+"/"+modelString
-  url_model =  "/api/v1.0/bar_model/"+modelString
+  // url = "/api/v1.0/"+chosenModel+"/"+modelString
+  // url_model =  "/api/v1.0/bar_model/"+modelString
+  url_visit_id = "/api/v1.0/get_visit_id"
 
-  console.log(url)
-  console.log(url_model)
+  console.log(url_visit_id)
 
-  get_model_data(url_model)
+  // get_model_data(url_model)
 
-  d3.json(url).then(function(response) {
+  d3.json(url_visit_id).then(function(response) {
     
-    console.log(response.prediction);
-    if (response.prediction == 1) {
+    console.log(response);
+    
+    console.log(response[0]);
+    // if (response.prediction == 1) {
       // alert("Based on statistics, things aren't looking so well. Please see a doctor as soon as possible!" );
       $(document).ready(function(){
         $("#alert-message").html("");
-        $("#alert-message").append("Based on statistics, things aren't looking so well. Please see a doctor as soon as possible!");
-        $("#alert-message").append("<br>" + "Chosen Model: " + response.model) ;
-        $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
+        $("#alert-message").append("New VISIT_ID: " + response[0].VISIT_ID);
+        // $("#alert-message").append("<br>" + "Chosen Model: " + response.model) ;
+        // $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
       });
-    } 
-    else if (response.prediction  == 2) {
-      // alert("Your situation is severe, you will most likely have to go to the hospital!")
-      $(document).ready(function(){
-        $("#alert-message").html("");
-        $("#alert-message").append("Your situation is severe, you will most likely have to go to the hospital!");
-        $("#alert-message").append("<br>" + "Chosen Model: " + response.model );
-        $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
-      });
+    // } 
+    // else if (response.prediction  == 2) {
+    //   // alert("Your situation is severe, you will most likely have to go to the hospital!")
+    //   $(document).ready(function(){
+    //     $("#alert-message").html("");
+    //     $("#alert-message").append("Your situation is severe, you will most likely have to go to the hospital!");
+    //     $("#alert-message").append("<br>" + "Chosen Model: " + response.model );
+    //     $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
+    //   });
 
-    } 
-    else if (response.prediction  == 3) { 
-      // alert("You have will most likely be able to get well at home!" ) 
-      $(document).ready(function(){
-        $("#alert-message").html("");
-        $("#alert-message").append("You have will most likely be able to get well at home!");
-        $("#alert-message").append("<br>" + "Chosen Model: " + response.model);
-        $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
-      });
+    // } 
+    // else if (response.prediction  == 3) { 
+    //   // alert("You have will most likely be able to get well at home!" ) 
+    //   $(document).ready(function(){
+    //     $("#alert-message").html("");
+    //     $("#alert-message").append("You have will most likely be able to get well at home!");
+    //     $("#alert-message").append("<br>" + "Chosen Model: " + response.model);
+    //     $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
+    //   });
 
-    } 
-    else {
-      // alert ("Something went wrong, please try again")
-      $(document).ready(function(){
-        $("#alert-message").html("");
-        $("#alert-message").append("Something went wrong, please try again!");
-        $("#alert-message").append("<br>" + "Chosen Model: Error");
-        $("#alert-message").append("<br>" + "Test Score: Error");
-      });
+    // } 
+    // else {
+    //   // alert ("Something went wrong, please try again")
+    //   $(document).ready(function(){
+    //     $("#alert-message").html("");
+    //     $("#alert-message").append("Something went wrong, please try again!");
+    //     $("#alert-message").append("<br>" + "Chosen Model: Error");
+    //     $("#alert-message").append("<br>" + "Test Score: Error");
+    //   });
 
-    }
+    // }
 
     
     })
