@@ -146,7 +146,7 @@ get_submit.on("click", function() {
     // if (response.prediction == 1) {
       // alert("Based on statistics, things aren't looking so well. Please see a doctor as soon as possible!" );
       $(document).ready(function(){
-        $("#alert-message").html("");
+        $("#alert-message").html(" ");
         $("#alert-message").append("New VISIT_ID: " + response[0].VISIT_ID);
         // $("#alert-message").append("<br>" + "Chosen Model: " + response.model) ;
         // $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
