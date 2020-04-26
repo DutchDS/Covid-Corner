@@ -65,6 +65,11 @@ def charts():
   
     return render_template("Covid_Charts.html")
 
+@app.route("/settings")
+def settings(): 
+  
+    return render_template("Covid_Settings.html")
+
 @app.route("/api/v1.0/<model>/<selFeatures>")
 def model(model, selFeatures): 
     
