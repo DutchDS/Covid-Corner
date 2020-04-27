@@ -236,7 +236,7 @@ def states_list():
     all_results = []
     for state_name, state in result_set:
         results_dict = {}
-        print(state)
+        # print(state)
         results_dict["state_name"] = state_name
         results_dict["state"] = state
         all_results.append(results_dict)
@@ -266,6 +266,34 @@ def bar_model(selFeatures):
         results_dict["model"] = model
         results_dict["train_score"] = train_score
         results_dict["test_score"] = test_score
+        all_results.append(results_dict)
+
+    return jsonify(all_results)
+
+@app.route("/api/v1.0/companies_list/<state>/<county>")
+def get_companies(state, county):
+
+    result_set = []
+    
+    query_str = open('static/sql/companies_list.sql')
+    query_text = ""
+    
+    for text in query_str:
+        query_text = query_text + text
+    
+    query_text = query_text + " and s.state_name ='" + str(state) + "' and a.county = '" + str(county) + \
+        "' order by a.company_name "
+
+    print(query_text)
+
+    result_set = engine.execute(query_text)
+    
+    all_results = []
+
+    for company_name, company_id in result_set:
+        results_dict = {}
+        results_dict["company_name"] = company_name
+        results_dict["company_id"] = company_id
         all_results.append(results_dict)
 
     return jsonify(all_results)

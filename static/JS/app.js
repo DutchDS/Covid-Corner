@@ -21,12 +21,15 @@ var url_get_counties = "/api/v1.0/counties_list"
 var url_counties = "/api/v1.0/bar_counties";
 var get_county = d3.select("#selectCounty");
 
+var get_company= d3.select("#selectCompany");
+
 var listCompanies = []
 
 var chosen_state = ""
 
 d3.select("#selectState").append("option").text("Select State");
 d3.select("#selectCounty").append("option").text("Select County");
+d3.select("#selectCompany").append("option").text("Select Company");
 // d3.select("#selectCompany").append("option").text("Select Company");
 
 // ###### FIRST BOX - FILL STATES ##### //
@@ -77,29 +80,61 @@ function loadDropDown_Counties(myId, state, myText) {d3.json(url_get_counties).t
       });
   })};
 
-// ###### THIRD BOX - FILL STORES ##### //  
-function loadDropDowns(myId, myshortList, myText) {
-    // var tbody = d3.select("tbody");
-    var inputDate = d3.select(myId) 
-    
-    inputDate.html(" ");
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+// ###### THIRD BOX - FILL COMPANIES BASED ON SELECTED STATE, COUNTY ##### //
+function loadDropDown_Companies(myId, state, county, myText) {
   
-    // d3.select("#selectCompany").append("option").text("Select Company");
-    console.log(myshortList);
+  url_get_companies = '/api/v1.0/companies_list/' +  state + '/' + county
+  console.log(url_get_companies)
+  
+  d3.json(url_get_companies).then(function(response) {
 
-    var cell = inputDate.append("option").text(myText);
-    
-    myshortList.forEach((f) => {
-      console.log(f);
-      cell = inputDate.append("option")
+  // Create an array with only those counties within a chosen state
+  var listCompanies = []
+
+  for (var i in response) {
+      listCompanies.push(response[i].company_name)
+          }
+ 
+  var inputTag = d3.select(myId) 
+  
+  console.log(myId)
+  inputTag.html(" ");
+  
+  console.log(listCompanies);
+  var cell = inputTag.append("option").text(myText);
+  
+  listCompanies.forEach((f) => {
+      var cell = inputTag.append("option")
       cell.text(f);
-  
       });
-    };
+  })};
 
-listCompanies = ['Schnucks','Ace','CarX','Dierbergs','Shell Gas Station']
-console.log(listCompanies)
-loadDropDowns("#selectCompany",listCompanies, "Select Company");
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+// ###### THIRD BOX - FILL STORES ##### //  
+// function loadDropDowns(myId, myshortList, myText) {
+//     // var tbody = d3.select("tbody");
+//     var inputDate = d3.select(myId) 
+    
+//     inputDate.html(" ");
+  
+//     // d3.select("#selectCompany").append("option").text("Select Company");
+//     console.log(myshortList);
+
+//     var cell = inputDate.append("option").text(myText);
+    
+//     myshortList.forEach((f) => {
+//       console.log(f);
+//       cell = inputDate.append("option")
+//       cell.text(f);
+  
+//       });
+//     };
+
+// listCompanies = ['Schnucks','Ace','CarX','Dierbergs','Shell Gas Station']
+// console.log(listCompanies)
+// loadDropDowns("#selectCompany",listCompanies, "Select Company");
 
 get_shape.on("change", function() {
     let inputValueShape = d3.select("#selectState").property("value");
@@ -112,26 +147,28 @@ get_shape.on("change", function() {
   
 get_county.on("change", function() {
     let inputValueCounty = d3.select("#selectCounty").property("value");
-    county = inputValueCounty
-    console.log(chosen_state, county);
+    chosen_county = inputValueCounty
+    console.log(chosen_state, chosen_county);
+    loadDropDown_Companies("#selectCompany",chosen_state, chosen_county,"Select Company");
      });
+
+//  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+get_company.on("change", function() {
+
+    if (chosen_state == "" | chosen_county == "") {
+      $(document).ready(function(){
+        $("#alert-message").html("Chose both State and County First");
+       });
+    }
+    else {
+        let inputValueCompany = d3.select("#selectCompany").property("value");
+        chosen_company = inputValueCompany
+        console.log(chosen_state, chosen_county, chosen_company);}
+      });
+//  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 // WE HAVE TO THINK ABOUT THIS ONE.... On Submit the page should be redirected to an endpoint from FLASK
 get_submit.on("click", function() {
-  
-  // let chosenModel = ""
-  // let modelString = ""
-  // let returnValues = []
-  
-  // returnValues = preArray()
-  // chosenModel = returnValues[0]
-  // modelString = returnValues[1]
-
-  // console.log(chosenModel)
-  // console.log(modelString)
-  
-  // url = "/api/v1.0/"+chosenModel+"/"+modelString
-  // url_model =  "/api/v1.0/bar_model/"+modelString
   url_visit_id = "/api/v1.0/get_visit_id"
 
   console.log(url_visit_id)
@@ -143,45 +180,16 @@ get_submit.on("click", function() {
     console.log(response);
     
     console.log(response[0]);
+
+    unique_VISIT_ID = chosen_company + "_" + response[0].VISIT_ID
     // if (response.prediction == 1) {
       // alert("Based on statistics, things aren't looking so well. Please see a doctor as soon as possible!" );
       $(document).ready(function(){
         $("#alert-message").html(" ");
-        $("#alert-message").append("New VISIT_ID: " + response[0].VISIT_ID);
+        $("#alert-message").append("New VISIT_ID: " + unique_VISIT_ID);
         // $("#alert-message").append("<br>" + "Chosen Model: " + response.model) ;
         // $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
       });
-    // } 
-    // else if (response.prediction  == 2) {
-    //   // alert("Your situation is severe, you will most likely have to go to the hospital!")
-    //   $(document).ready(function(){
-    //     $("#alert-message").html("");
-    //     $("#alert-message").append("Your situation is severe, you will most likely have to go to the hospital!");
-    //     $("#alert-message").append("<br>" + "Chosen Model: " + response.model );
-    //     $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
-    //   });
-
-    // } 
-    // else if (response.prediction  == 3) { 
-    //   // alert("You have will most likely be able to get well at home!" ) 
-    //   $(document).ready(function(){
-    //     $("#alert-message").html("");
-    //     $("#alert-message").append("You have will most likely be able to get well at home!");
-    //     $("#alert-message").append("<br>" + "Chosen Model: " + response.model);
-    //     $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
-    //   });
-
-    // } 
-    // else {
-    //   // alert ("Something went wrong, please try again")
-    //   $(document).ready(function(){
-    //     $("#alert-message").html("");
-    //     $("#alert-message").append("Something went wrong, please try again!");
-    //     $("#alert-message").append("<br>" + "Chosen Model: Error");
-    //     $("#alert-message").append("<br>" + "Test Score: Error");
-    //   });
-
-    // }
 
     
     })

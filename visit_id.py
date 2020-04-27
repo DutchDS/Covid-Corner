@@ -9,7 +9,8 @@ def create_visit_id():
     TIME_ID = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     TEMP_ID = myTEMP_ID[-12:myLen]
 
-    VISIT_ID = str(COMPANY_ID) + '-' + str(TIME_ID)  + '-' + TEMP_ID
+    # VISIT_ID = str(COMPANY_ID) + '-' + str(TIME_ID)  + '-' + TEMP_ID
+    VISIT_ID = str(TIME_ID)  + '-' + TEMP_ID
 
     print(VISIT_ID)
     
