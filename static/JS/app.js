@@ -217,5 +217,7 @@ get_submit.on("click", function() {
       $(".note-close").click(function() {
         $("#alert")
         .css("display","none");
+        location.reload() 
       });
+
     });
