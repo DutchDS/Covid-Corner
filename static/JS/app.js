@@ -208,7 +208,7 @@ get_submit.on("click", function() {
       
       $("#submitAll").click(function() {
         $("#bar_model")
-        .css("height", "500px");
+        .css("height", "420px");
       });
     });
 
@@ -217,7 +217,7 @@ get_submit.on("click", function() {
       $(".note-close").click(function() {
         $("#alert")
         .css("display","none");
-        location.reload() 
+        // location.reload() 
       });
 
     });
