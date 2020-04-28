@@ -15,7 +15,7 @@
             
 <!--Link stylesheet and font apis-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js" integrity="sha256-2JRzNxMJiS0aHOJjG+liqsEOuBb6++9cY4dSOyiijX4=" crossorigin="anonymous"></script>
-            <link rel="stylesheet" type="text/css" href="static/CSS/Covid_Risk.css">
+            <link rel="stylesheet" type="text/css" href="static/CSS/app.css">
             <!-- <link rel="stylesheet" type="text/css" href="assets/CSS/Covid_Risk.css"> -->
             <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -55,72 +55,64 @@
                 <div id="para" class="rounded shadow-lg bg-light mb-4">
                     <div id="about" class="ml-3 mt-2">
                         <h3>Please Make a Selection</h3>
-                    <br>
-
-                    <!-- <div id="headers" class=row>
-                        <div class='col-lg-12'><h4>About the Model</h4></div>
-                        <br>
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-4 col-sm-12">
-                            <h5>Choose Model</h5>
-                            <select class="form-control" id="selectModel" name="select-model-from-list"></select>
-                        </div>
-                    </div> -->
-                    <br>
-                    <div id="headers" class=row>
-                        <div class='col-lg-12'><h4>Find Company Locator</h4></div>
                         <br>
                         <br>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-2 col-sm-12"><h5>State</h5>
-                            <select class="form-control" id="selectState" name="select-state-from-list">
-                            </select>
-                        </div>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-2 col-sm-12"><h5>County</h5>
-                            <select class="form-control " id="selectCounty" name="select-county-from-list">
-                            </select>
+                        <div id="headers" class=row>
+                            <div class='col-lg-12'><h4>Find Company Locator</h4></div>
+                            <br>
+                            <br>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-2 col-sm-12"><h5>State</h5>
+                                <select class="form-control" id="selectState" name="select-state-from-list">
+                                </select>
+                            </div>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-2 col-sm-12"><h5>County</h5>
+                                <select class="form-control " id="selectCounty" name="select-county-from-list">
+                                </select>
+                            </div>
+                            <br>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-3 col-sm-12"><h5>Company</h5>
+                                <select class="form-control " id="selectCompany" name="select-company-from-list">
+                                </select>
+                            </div>
+                            <br>
                         </div>
                         <br>
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-3 col-sm-12"><h5>Company</h5>
-                            <select class="form-control " id="selectCompany" name="select-company-from-list">
-                            </select>
-                        </div>
                         <br>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <div id="button"class=row>
-                        <div class="col-lg-10"></div>
-                        <div class="col-lg-2 col-sm-12">
-                            <button type="button" class="enter-button" id="submitAll">
-                                Get Visit ID
-                            </button>
-                        </div>
-                    </div>
-<!-- Added Model Evaluation Output -->
-            <br>
-            <div>
-                <div class="row">
-                    <div class= "col-lg-4"></div>
-                    <div class= "col-lg-6 col-sm-12">
-                    <!-- ############################################ -->
-                    <!-- ########## INSERT BAR CHART ################ -->
-                    <!-- ############################################ -->
-                            <div id="bar_model"></div>
                         <br>
+                        <div id="button"class=row>
+                            <div class="col-lg-10"></div>
+                            <div class="col-lg-2 col-sm-12">
+                                <button type="button" class="enter-button" id="submitAll">
+                                    Get Visit ID
+                                </button>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
-<!-- End of Model Evaluation Output -->
-
+                <!-- Added Model Evaluation Output -->
+                <br>
+                <div>
+                    <div class="row">
+                        <div class= "col-lg-4"></div>
+                        <div class= "col-lg-6 col-sm-12">
+                        <!-- ############################################ -->
+                        <!-- ########## INSERT BAR CHART ################ -->
+                        <!-- ############################################ -->
+                                <div id="bar_model"></div>
+                            <br>
+                        </div>
                     </div>
-                    <div id="message" title="ML Results"><p></p></div>
-                    <br>
                 </div>
-            </div>
+                <!-- End of Model Evaluation Output -->
+                <div id="message" title="ML Results"><p></p></div>
+                <br>
+
+
             <div id="alert" class="flag note">
                 <div class="flag-image note-icon">
                     <i class="fas fa-exclamation fa"></i>
@@ -135,7 +127,8 @@
                 </div>
             </div>
             </div>
-        </div>
+            </div>
+
         
         <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
             <div class="container text-center">

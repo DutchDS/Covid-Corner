@@ -187,6 +187,7 @@ get_submit.on("click", function() {
       $(document).ready(function(){
         $("#alert-message").html(" ");
         $("#alert-message").append("New VISIT_ID: " + unique_VISIT_ID);
+        $("#alert-message").append("<br>");
         // $("#alert-message").append("<br>" + "Chosen Model: " + response.model) ;
         // $("#alert-message").append("<br>" + "Test Score: " + response.test_score);
       });
